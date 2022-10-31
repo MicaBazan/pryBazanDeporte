@@ -117,12 +117,14 @@ namespace pryBazanDeporte
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
                 cmd.Connection.Close();
-                MessageBox.Show("Registro Actualizado Existosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 interfazInicial();
+                MessageBox.Show("Registro Actualizado Existosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                conexion.Close();
                 interfazInicial();
             }
         }

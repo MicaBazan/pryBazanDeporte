@@ -52,6 +52,7 @@ namespace pryBazanDeporte
         private void btnModificar_Click(object sender, EventArgs e)
         {
             habilitar();
+            txtCodigo.Enabled = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -100,33 +101,34 @@ namespace pryBazanDeporte
         {
             OleDbConnection conexion = new OleDbConnection(ruta);
 
-            string update = "UPDATE DEPORTISTA SET NOMBRE=@Nombre,APELLIDO=@Direccion,TELEFONO=@Telefono,EDAD=@Edad,DEPORTE=@Deporte WHERE CODIGO_DEPORTISTA=@Codigo";
+            string update = "UPDATE DEPORTISTA SET NOMBRE=@Nombre,APELLIDO=@Apellido,DIRECCION=@Direccion,TELEFONO=@Telefono,EDAD=@Edad,DEPORTE=@Deporte WHERE CODIGO_DEPORTISTA=@Codigo";
 
             try
             {
                 OleDbCommand cmd = new OleDbCommand(update, conexion);
 
-                cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
-                cmd.Parameters.AddWithValue("@Apellido", txtApellido.Text);
-                cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
+                cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text.ToUpper());
+                cmd.Parameters.AddWithValue("@Apellido", txtApellido.Text.ToUpper());
+                cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text.ToUpper());
                 cmd.Parameters.AddWithValue("@Telefono", mskTelefono.Text);
                 cmd.Parameters.AddWithValue("@Edad", lstEdad.Text);
-                cmd.Parameters.AddWithValue("@Deporte", lstDeporte.Text);
+                cmd.Parameters.AddWithValue("@Deporte", lstDeporte.Text.ToUpper());
 
                 cmd.Parameters.AddWithValue("@Codigo", txtCodigo.Text);
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
                 cmd.Connection.Close();
-                interfazInicial();
                 MessageBox.Show("Registro Actualizado Existosamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                conexion.Close();
-                interfazInicial();
             }
+
+            interfazInicial();
+            limpiar();
+            txtCodigo.Enabled = true;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

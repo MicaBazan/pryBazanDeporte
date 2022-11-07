@@ -14,6 +14,7 @@ namespace pryBazanDeporte
     public partial class frmRegistrarDeportista : Form
     {
         string ruta = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source= DEPORTE.accdb";
+        string[] vecCodigo = new string[100];
 
         public frmRegistrarDeportista()
         {
@@ -27,30 +28,60 @@ namespace pryBazanDeporte
 
         private void frmRegistrarDeportista_Load(object sender, EventArgs e)
         {
-            
+            lstDeporte.SelectedIndex = -1;
+            lstEdad.SelectedIndex = -1;
+            btnRegistrar.Enabled = false;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            int indice = 0;
+            string codigo = txtCodigo.Text;
+
             OleDbConnection conexion = new OleDbConnection(ruta);
             conexion.Open();
 
-            string insert = @"INSERT INTO DEPORTISTA(CODIGO_DEPORTISTA,NOMBRE,APELLIDO,DIRECCION,TELEFONO,EDAD,DEPORTE)
+
+
+
+            //Mover al vector el codigo deportista
+            string selectVec = "SELECT CODIGO_DEPORTISTA FROM DEPORTISTA";
+            OleDbCommand cmdVec = new OleDbCommand(selectVec, conexion);
+
+
+            OleDbDataReader objLector = cmdVec.ExecuteReader();
+            while (objLector.Read())
+            {
+                vecCodigo[indice] = Convert.ToString(objLector[0]);
+                indice++;
+            }
+
+
+
+            //Verifico que no se repita
+            if (vecCodigo.Contains(codigo))
+            {
+                MessageBox.Show("El codigo que ingreso ya existe", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                string insert = @"INSERT INTO DEPORTISTA(CODIGO_DEPORTISTA,NOMBRE,APELLIDO,DIRECCION,TELEFONO,EDAD,DEPORTE)
                                 VALUES(@CODIGO_DEPORTISTA, @NOMBRE, @APELLIDO, @DIRECCION, @TELEFONO, @EDAD, @DEPORTE)";
 
-            OleDbCommand cmd = new OleDbCommand(insert, conexion);
+                OleDbCommand cmd = new OleDbCommand(insert, conexion);
 
-            cmd.Parameters.AddWithValue("@CODIGO_DEPORTISTA", txtCodigo.Text.ToUpper());
-            cmd.Parameters.AddWithValue("@NOMBRE", txtNombre.Text.ToUpper());
-            cmd.Parameters.AddWithValue("@APELLIDO", txtApellido.Text.ToUpper());
-            cmd.Parameters.AddWithValue("@DIRECCION", txtDireccion.Text.ToUpper());
-            cmd.Parameters.AddWithValue("@TELEFONO", mskTelefono.Text);
-            cmd.Parameters.AddWithValue("@EDAD", lstEdad.Text);
-            cmd.Parameters.AddWithValue("@DEPORTE", lstDeporte.Text.ToUpper());
+                cmd.Parameters.AddWithValue("@CODIGO_DEPORTISTA", codigo.ToUpper());
+                cmd.Parameters.AddWithValue("@NOMBRE", txtNombre.Text.ToUpper());
+                cmd.Parameters.AddWithValue("@APELLIDO", txtApellido.Text.ToUpper());
+                cmd.Parameters.AddWithValue("@DIRECCION", txtDireccion.Text.ToUpper());
+                cmd.Parameters.AddWithValue("@TELEFONO", mskTelefono.Text);
+                cmd.Parameters.AddWithValue("@EDAD", lstEdad.Text);
+                cmd.Parameters.AddWithValue("@DEPORTE", lstDeporte.Text.ToUpper());
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            MessageBox.Show("Deportista Registrado", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Deportista Registrado", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
             conexion.Close();
 
@@ -68,9 +99,59 @@ namespace pryBazanDeporte
             lstDeporte.Text = "";
         }
 
+
+
+
         private void mskTelefono_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void validar()
+        {
+            if(txtCodigo.Text != string.Empty && txtNombre.Text != string.Empty && txtApellido.Text != string.Empty && txtDireccion.Text != string.Empty && mskTelefono.Text != string.Empty && lstEdad.Text != string.Empty && lstDeporte.Text != string.Empty)
+            {
+                btnRegistrar.Enabled = true;
+            }
+            else
+            {
+                btnRegistrar.Enabled = false;
+            }
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            validar();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            validar();
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+            validar();
+        }
+
+        private void txtDireccion_TextChanged(object sender, EventArgs e)
+        {
+            validar();
+        }
+
+        private void mskTelefono_TextChanged(object sender, EventArgs e)
+        {
+            validar();
+        }
+
+        private void lstEdad_TextChanged(object sender, EventArgs e)
+        {
+            validar();
+        }
+
+        private void lstDeporte_TextChanged(object sender, EventArgs e)
+        {
+            validar();
         }
     }
 }

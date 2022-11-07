@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.picCerrar = new System.Windows.Forms.PictureBox();
             this.lblMenu = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -46,10 +47,9 @@
             this.lstDeporte = new System.Windows.Forms.ComboBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.gbDatos = new System.Windows.Forms.GroupBox();
-            this.picCerrar = new System.Windows.Forms.PictureBox();
             this.pnlMenu.SuspendLayout();
-            this.gbDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).BeginInit();
+            this.gbDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -57,129 +57,161 @@
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(228)))), ((int)(((byte)(152)))));
             this.pnlMenu.Controls.Add(this.picCerrar);
             this.pnlMenu.Controls.Add(this.lblMenu);
-            this.pnlMenu.Location = new System.Drawing.Point(-5, -8);
+            this.pnlMenu.Location = new System.Drawing.Point(-4, -6);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(690, 50);
+            this.pnlMenu.Size = new System.Drawing.Size(518, 41);
             this.pnlMenu.TabIndex = 0;
+            // 
+            // picCerrar
+            // 
+            this.picCerrar.Image = global::pryBazanDeporte.Properties.Resources.cerrar;
+            this.picCerrar.Location = new System.Drawing.Point(479, 14);
+            this.picCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picCerrar.Name = "picCerrar";
+            this.picCerrar.Size = new System.Drawing.Size(19, 21);
+            this.picCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCerrar.TabIndex = 2;
+            this.picCerrar.TabStop = false;
+            this.picCerrar.Click += new System.EventHandler(this.picCerrar_Click);
             // 
             // lblMenu
             // 
             this.lblMenu.AutoSize = true;
             this.lblMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenu.Location = new System.Drawing.Point(17, 17);
+            this.lblMenu.Location = new System.Drawing.Point(13, 14);
+            this.lblMenu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(211, 22);
+            this.lblMenu.Size = new System.Drawing.Size(178, 18);
             this.lblMenu.TabIndex = 1;
             this.lblMenu.Text = "Registro de Deportista";
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(23, 44);
+            this.lblCodigo.Location = new System.Drawing.Point(17, 36);
+            this.lblCodigo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(51, 16);
+            this.lblCodigo.Size = new System.Drawing.Size(40, 13);
             this.lblCodigo.TabIndex = 1;
             this.lblCodigo.Text = "Código";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(23, 96);
+            this.lblNombre.Location = new System.Drawing.Point(17, 78);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(56, 16);
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre";
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(372, 96);
+            this.lblApellido.Location = new System.Drawing.Point(279, 78);
+            this.lblApellido.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(57, 16);
+            this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 3;
             this.lblApellido.Text = "Apellido";
             // 
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(23, 150);
+            this.lblDireccion.Location = new System.Drawing.Point(17, 122);
+            this.lblDireccion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(64, 16);
+            this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 4;
             this.lblDireccion.Text = "Dirección";
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(372, 150);
+            this.lblTelefono.Location = new System.Drawing.Point(279, 122);
+            this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(61, 16);
+            this.lblTelefono.Size = new System.Drawing.Size(49, 13);
             this.lblTelefono.TabIndex = 5;
             this.lblTelefono.Text = "Telefono";
             // 
             // lblEdad
             // 
             this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(23, 204);
+            this.lblEdad.Location = new System.Drawing.Point(17, 166);
+            this.lblEdad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEdad.Name = "lblEdad";
-            this.lblEdad.Size = new System.Drawing.Size(40, 16);
+            this.lblEdad.Size = new System.Drawing.Size(32, 13);
             this.lblEdad.TabIndex = 6;
             this.lblEdad.Text = "Edad";
             // 
             // lblDeporte
             // 
             this.lblDeporte.AutoSize = true;
-            this.lblDeporte.Location = new System.Drawing.Point(377, 204);
+            this.lblDeporte.Location = new System.Drawing.Point(283, 166);
+            this.lblDeporte.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDeporte.Name = "lblDeporte";
-            this.lblDeporte.Size = new System.Drawing.Size(56, 16);
+            this.lblDeporte.Size = new System.Drawing.Size(45, 13);
             this.lblDeporte.TabIndex = 7;
             this.lblDeporte.Text = "Deporte";
             // 
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(109, 31);
+            this.txtCodigo.Location = new System.Drawing.Point(82, 25);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCodigo.MaxLength = 5;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 34);
+            this.txtCodigo.Size = new System.Drawing.Size(76, 28);
             this.txtCodigo.TabIndex = 8;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(109, 83);
+            this.txtNombre.Location = new System.Drawing.Point(82, 67);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(237, 34);
+            this.txtNombre.Size = new System.Drawing.Size(179, 28);
             this.txtNombre.TabIndex = 9;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // txtApellido
             // 
             this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido.Location = new System.Drawing.Point(458, 83);
+            this.txtApellido.Location = new System.Drawing.Point(344, 67);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(167, 34);
+            this.txtApellido.Size = new System.Drawing.Size(126, 28);
             this.txtApellido.TabIndex = 10;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
             // 
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(109, 137);
+            this.txtDireccion.Location = new System.Drawing.Point(82, 111);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(237, 34);
+            this.txtDireccion.Size = new System.Drawing.Size(179, 28);
             this.txtDireccion.TabIndex = 11;
+            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
             // 
             // mskTelefono
             // 
             this.mskTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskTelefono.Location = new System.Drawing.Point(458, 137);
+            this.mskTelefono.Location = new System.Drawing.Point(344, 111);
+            this.mskTelefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mskTelefono.Mask = "999999999";
             this.mskTelefono.Name = "mskTelefono";
-            this.mskTelefono.Size = new System.Drawing.Size(124, 34);
+            this.mskTelefono.Size = new System.Drawing.Size(94, 28);
             this.mskTelefono.TabIndex = 12;
             this.mskTelefono.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskTelefono_MaskInputRejected);
+            this.mskTelefono.TextChanged += new System.EventHandler(this.mskTelefono_TextChanged);
             // 
             // lstEdad
             // 
+            this.lstEdad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lstEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstEdad.FormattingEnabled = true;
             this.lstEdad.Items.AddRange(new object[] {
@@ -280,13 +312,16 @@
             "97",
             "98",
             "99"});
-            this.lstEdad.Location = new System.Drawing.Point(109, 191);
+            this.lstEdad.Location = new System.Drawing.Point(82, 155);
+            this.lstEdad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstEdad.Name = "lstEdad";
-            this.lstEdad.Size = new System.Drawing.Size(73, 37);
+            this.lstEdad.Size = new System.Drawing.Size(56, 30);
             this.lstEdad.TabIndex = 13;
+            this.lstEdad.TextChanged += new System.EventHandler(this.lstEdad_TextChanged);
             // 
             // lstDeporte
             // 
+            this.lstDeporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lstDeporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstDeporte.FormattingEnabled = true;
             this.lstDeporte.Items.AddRange(new object[] {
@@ -300,16 +335,19 @@
             "RUGBY",
             "CICLISMO",
             "HOCKEY"});
-            this.lstDeporte.Location = new System.Drawing.Point(458, 191);
+            this.lstDeporte.Location = new System.Drawing.Point(344, 155);
+            this.lstDeporte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstDeporte.Name = "lstDeporte";
-            this.lstDeporte.Size = new System.Drawing.Size(124, 37);
+            this.lstDeporte.Size = new System.Drawing.Size(94, 30);
             this.lstDeporte.TabIndex = 14;
+            this.lstDeporte.TextChanged += new System.EventHandler(this.lstDeporte_TextChanged);
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(493, 352);
+            this.btnRegistrar.Location = new System.Drawing.Point(370, 286);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(166, 62);
+            this.btnRegistrar.Size = new System.Drawing.Size(124, 50);
             this.btnRegistrar.TabIndex = 15;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
@@ -331,41 +369,33 @@
             this.gbDatos.Controls.Add(this.txtApellido);
             this.gbDatos.Controls.Add(this.lblDireccion);
             this.gbDatos.Controls.Add(this.lblTelefono);
-            this.gbDatos.Location = new System.Drawing.Point(16, 60);
+            this.gbDatos.Location = new System.Drawing.Point(12, 49);
+            this.gbDatos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(643, 275);
+            this.gbDatos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbDatos.Size = new System.Drawing.Size(482, 223);
             this.gbDatos.TabIndex = 16;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos";
             // 
-            // picCerrar
-            // 
-            this.picCerrar.Image = global::pryBazanDeporte.Properties.Resources.cerrar;
-            this.picCerrar.Location = new System.Drawing.Point(639, 17);
-            this.picCerrar.Name = "picCerrar";
-            this.picCerrar.Size = new System.Drawing.Size(25, 26);
-            this.picCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCerrar.TabIndex = 2;
-            this.picCerrar.TabStop = false;
-            this.picCerrar.Click += new System.EventHandler(this.picCerrar_Click);
-            // 
             // frmRegistrarDeportista
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 428);
+            this.ClientSize = new System.Drawing.Size(508, 348);
             this.Controls.Add(this.gbDatos);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.pnlMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmRegistrarDeportista";
             this.Text = "Registro Deportista";
             this.Load += new System.EventHandler(this.frmRegistrarDeportista_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).EndInit();
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }

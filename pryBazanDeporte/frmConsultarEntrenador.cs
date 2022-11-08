@@ -23,7 +23,6 @@ namespace pryBazanDeporte
         {
             try
             {
-                dgvEntrenador.Rows.Clear();
 
                 OleDbConnection conexion = new OleDbConnection(ruta);
 

@@ -32,6 +32,8 @@
             this.picCerrar = new System.Windows.Forms.PictureBox();
             this.lblMenu = new System.Windows.Forms.Label();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.lstProvincia = new System.Windows.Forms.ComboBox();
+            this.lblProvincia = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lstDeporte = new System.Windows.Forms.ComboBox();
@@ -42,8 +44,6 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
-            this.lstProvincia = new System.Windows.Forms.ComboBox();
-            this.lblProvincia = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).BeginInit();
@@ -102,6 +102,32 @@
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos";
             // 
+            // lstProvincia
+            // 
+            this.lstProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.lstProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstProvincia.FormattingEnabled = true;
+            this.lstProvincia.Items.AddRange(new object[] {
+            "BOLIVAR",
+            "CÓRDOBA",
+            "CAÑAR",
+            "MENDOZA",
+            "CHIMBORAZO",
+            "JUJUY"});
+            this.lstProvincia.Location = new System.Drawing.Point(458, 134);
+            this.lstProvincia.Name = "lstProvincia";
+            this.lstProvincia.Size = new System.Drawing.Size(124, 37);
+            this.lstProvincia.TabIndex = 24;
+            // 
+            // lblProvincia
+            // 
+            this.lblProvincia.AutoSize = true;
+            this.lblProvincia.Location = new System.Drawing.Point(372, 147);
+            this.lblProvincia.Name = "lblProvincia";
+            this.lblProvincia.Size = new System.Drawing.Size(63, 16);
+            this.lblProvincia.TabIndex = 23;
+            this.lblProvincia.Text = "Provincia";
+            // 
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,6 +136,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 34);
             this.txtCodigo.TabIndex = 8;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // lblCodigo
             // 
@@ -122,6 +149,7 @@
             // 
             // lstDeporte
             // 
+            this.lstDeporte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lstDeporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstDeporte.FormattingEnabled = true;
             this.lstDeporte.Items.AddRange(new object[] {
@@ -147,6 +175,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(237, 34);
             this.txtNombre.TabIndex = 9;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblDeporte
             // 
@@ -190,6 +219,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(167, 34);
             this.txtApellido.TabIndex = 10;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // lblDireccion
             // 
@@ -199,31 +229,6 @@
             this.lblDireccion.Size = new System.Drawing.Size(64, 16);
             this.lblDireccion.TabIndex = 4;
             this.lblDireccion.Text = "Dirección";
-            // 
-            // lstProvincia
-            // 
-            this.lstProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstProvincia.FormattingEnabled = true;
-            this.lstProvincia.Items.AddRange(new object[] {
-            "BOLIVAR",
-            "CÓRDOBA",
-            "CAÑAR",
-            "MENDOZA",
-            "CHIMBORAZO",
-            "JUJUY"});
-            this.lstProvincia.Location = new System.Drawing.Point(458, 134);
-            this.lstProvincia.Name = "lstProvincia";
-            this.lstProvincia.Size = new System.Drawing.Size(124, 37);
-            this.lstProvincia.TabIndex = 24;
-            // 
-            // lblProvincia
-            // 
-            this.lblProvincia.AutoSize = true;
-            this.lblProvincia.Location = new System.Drawing.Point(372, 147);
-            this.lblProvincia.Name = "lblProvincia";
-            this.lblProvincia.Size = new System.Drawing.Size(63, 16);
-            this.lblProvincia.TabIndex = 23;
-            this.lblProvincia.Text = "Provincia";
             // 
             // btnRegistrar
             // 

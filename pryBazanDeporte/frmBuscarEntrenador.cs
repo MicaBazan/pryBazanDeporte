@@ -41,6 +41,7 @@ namespace pryBazanDeporte
             if (ds.Tables[0].Rows.Count == 0)
             {
                 MessageBox.Show("Lo siento el código ingresado no existe", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtCodigo.Text = "";
                 ds.Dispose();
                 return;
             }
@@ -52,6 +53,8 @@ namespace pryBazanDeporte
                 lstProvincia.Text = ds.Tables[0].Rows[0]["PROVINCIA"].ToString();
                 lstDeporte.Text = ds.Tables[0].Rows[0]["DEPORTE"].ToString();
                 ds.Dispose();
+                btnEliminar.Enabled = true;
+                btnModificar.Enabled = true;
                 return;
             }
         }
@@ -65,6 +68,9 @@ namespace pryBazanDeporte
             lstDeporte.Enabled = false;
 
             btnGuardar.Enabled = false;
+            btnBuscar.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
         }
 
         private void habilitar()
@@ -150,6 +156,18 @@ namespace pryBazanDeporte
             lstProvincia.Text = "";
             lstDeporte.Text = "";
             txtCodigo.Text = "";
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text != string.Empty)
+            {
+                btnBuscar.Enabled = true;
+            }
+            else
+            {
+                btnBuscar.Enabled = false;
+            }
         }
     }
 }

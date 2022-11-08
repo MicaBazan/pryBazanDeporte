@@ -35,6 +35,8 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.lstProvincia = new System.Windows.Forms.ComboBox();
+            this.lblProvincia = new System.Windows.Forms.Label();
             this.lstDeporte = new System.Windows.Forms.ComboBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -46,8 +48,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.lstProvincia = new System.Windows.Forms.ComboBox();
-            this.lblProvincia = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCerrar)).BeginInit();
             this.gbDatos.SuspendLayout();
@@ -101,6 +101,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 22);
             this.txtCodigo.TabIndex = 7;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // lblCodigo
             // 
@@ -129,6 +130,31 @@
             this.gbDatos.TabIndex = 9;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos";
+            // 
+            // lstProvincia
+            // 
+            this.lstProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstProvincia.FormattingEnabled = true;
+            this.lstProvincia.Items.AddRange(new object[] {
+            "BOLIVAR",
+            "CÓRDOBA",
+            "CAÑAR",
+            "MENDOZA",
+            "CHIMBORAZO",
+            "JUJUY"});
+            this.lstProvincia.Location = new System.Drawing.Point(110, 203);
+            this.lstProvincia.Name = "lstProvincia";
+            this.lstProvincia.Size = new System.Drawing.Size(124, 37);
+            this.lstProvincia.TabIndex = 22;
+            // 
+            // lblProvincia
+            // 
+            this.lblProvincia.AutoSize = true;
+            this.lblProvincia.Location = new System.Drawing.Point(16, 216);
+            this.lblProvincia.Name = "lblProvincia";
+            this.lblProvincia.Size = new System.Drawing.Size(63, 16);
+            this.lblProvincia.TabIndex = 21;
+            this.lblProvincia.Text = "Provincia";
             // 
             // lstDeporte
             // 
@@ -239,31 +265,6 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // lstProvincia
-            // 
-            this.lstProvincia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstProvincia.FormattingEnabled = true;
-            this.lstProvincia.Items.AddRange(new object[] {
-            "BOLIVAR",
-            "CÓRDOBA",
-            "CAÑAR",
-            "MENDOZA",
-            "CHIMBORAZO",
-            "JUJUY"});
-            this.lstProvincia.Location = new System.Drawing.Point(110, 203);
-            this.lstProvincia.Name = "lstProvincia";
-            this.lstProvincia.Size = new System.Drawing.Size(124, 37);
-            this.lstProvincia.TabIndex = 22;
-            // 
-            // lblProvincia
-            // 
-            this.lblProvincia.AutoSize = true;
-            this.lblProvincia.Location = new System.Drawing.Point(16, 216);
-            this.lblProvincia.Name = "lblProvincia";
-            this.lblProvincia.Size = new System.Drawing.Size(63, 16);
-            this.lblProvincia.TabIndex = 21;
-            this.lblProvincia.Text = "Provincia";
             // 
             // frmBuscarEntrenador
             // 

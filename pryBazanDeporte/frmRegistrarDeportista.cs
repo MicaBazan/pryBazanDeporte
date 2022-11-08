@@ -15,6 +15,7 @@ namespace pryBazanDeporte
     {
         string ruta = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source= DEPORTE.accdb";
         string[] vecCodigo = new string[100];
+        int indice = 0;
 
         public frmRegistrarDeportista()
         {
@@ -31,17 +32,17 @@ namespace pryBazanDeporte
             lstDeporte.SelectedIndex = -1;
             lstEdad.SelectedIndex = -1;
             btnRegistrar.Enabled = false;
+
+
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            int indice = 0;
+
             string codigo = txtCodigo.Text;
 
             OleDbConnection conexion = new OleDbConnection(ruta);
             conexion.Open();
-
-
 
 
             //Mover al vector el codigo deportista
@@ -52,25 +53,19 @@ namespace pryBazanDeporte
             OleDbDataReader objLector = cmdVec.ExecuteReader();
             while (objLector.Read())
             {
-                vecCodigo[indice] = Convert.ToString(objLector[0]);
+                vecCodigo[indice] = Convert.ToString(objLector);
                 indice++;
             }
 
 
-
-            //Verifico que no se repita
-            if (vecCodigo.Contains(codigo))
-            {
-                MessageBox.Show("El codigo que ingreso ya existe", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
+            if(!vecCodigo.Contains(codigo))
             {
                 string insert = @"INSERT INTO DEPORTISTA(CODIGO_DEPORTISTA,NOMBRE,APELLIDO,DIRECCION,TELEFONO,EDAD,DEPORTE)
-                                VALUES(@CODIGO_DEPORTISTA, @NOMBRE, @APELLIDO, @DIRECCION, @TELEFONO, @EDAD, @DEPORTE)";
+                            VALUES(@CODIGO_DEPORTISTA, @NOMBRE, @APELLIDO, @DIRECCION, @TELEFONO, @EDAD, @DEPORTE)";
 
                 OleDbCommand cmd = new OleDbCommand(insert, conexion);
 
-                cmd.Parameters.AddWithValue("@CODIGO_DEPORTISTA", codigo.ToUpper());
+                cmd.Parameters.AddWithValue("@CODIGO_DEPORTISTA", txtCodigo.Text.ToUpper());
                 cmd.Parameters.AddWithValue("@NOMBRE", txtNombre.Text.ToUpper());
                 cmd.Parameters.AddWithValue("@APELLIDO", txtApellido.Text.ToUpper());
                 cmd.Parameters.AddWithValue("@DIRECCION", txtDireccion.Text.ToUpper());
@@ -82,6 +77,13 @@ namespace pryBazanDeporte
 
                 MessageBox.Show("Deportista Registrado", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+
+                MessageBox.Show("El codigo que ingreso ya existe", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpiar();
+            }
+                           
 
             conexion.Close();
 
@@ -152,6 +154,30 @@ namespace pryBazanDeporte
         private void lstDeporte_TextChanged(object sender, EventArgs e)
         {
             validar();
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 & e.KeyChar <= 64) || (e.KeyChar >= 91 & e.KeyChar <= 96) || (e.KeyChar >= 123 & e.KeyChar <= 255))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 & e.KeyChar <= 64) || (e.KeyChar >= 91 & e.KeyChar <= 96) || (e.KeyChar >= 123 & e.KeyChar <= 255))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 32 & e.KeyChar <= 64) || (e.KeyChar >= 91 & e.KeyChar <= 96) || (e.KeyChar >= 123 & e.KeyChar <= 255))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
